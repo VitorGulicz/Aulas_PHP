@@ -1,0 +1,27 @@
+body{
+    background-color: rgb(15, 21, 73) ;
+    
+}
+form{
+    background-color: white;
+    border: 3px solid rgb(0, 0, 0);
+    font-size: 20px;
+    max-width: 600px;
+    padding: 20px 5px;
+    min-width: none;
+    margin: auto;
+
+}
+input{
+   font-size: 20px;
+}
+
+table{
+    align-self: center;
+}
+
+h3{
+    font-size: 50px;
+}
+
+

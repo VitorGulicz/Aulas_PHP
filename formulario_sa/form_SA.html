@@ -1,0 +1,137 @@
+<!--Codigo html do formulario-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de saude</title>
+    <!--Escreva o CSS ou utilize bootstrap no codigo abaixo-->
+    <script src="Formulario.js"></script>
+    <link rel="stylesheet" type="text/css" href="form.css" media=" all">
+</head>
+<body>
+
+
+</ul>
+    <form action="form_SA_form.php" method="GET">
+        <!--Dados Pessoais-->
+        <center><fieldset>
+            <div>
+                <h3>Formulario SA - Fornecedor</h3>
+            </div>
+            <div id="linha">
+                <hr>
+            </div>
+            <br>
+            <div id="autor">
+                <h2> Vitor Daniel Macedo Gulicz </h2>
+            </div>
+            <table border="0" cellspacing="5" >
+                <tr><!--NOME-->
+                    <td align="right">
+                        <label for="nome">Nome do Fornecedor:</label>
+                    </td>
+                    <td align="left">
+                        <input class="tamanho" type="text" onkeypress="mascara(this,nome)" name="nome" size="15"required>
+                    </td>
+                </tr>
+
+                <tr><!--CNPJ-->
+                    <td align="right">
+                        <label for="cnpj">CNPJ do Fornecedor:</label>
+                    </td>
+                    <td align="left">
+                        <input type="text" onkeypress="mascara(this,cnpj)" name="cnpj" maxlength="18">
+                    </td>
+                </tr>
+
+                <tr><!--Email-->
+                    <td align="right">
+                        <label for="email">Email do Fornecedor:</label>
+                    </td>
+                    <td align="left">
+                        <input class="tamanho1" type="text" name="email" maxlength="15" required>
+                    </td>
+                </tr>
+
+                <tr><!--ENDERECO-->
+                    <td align="right">
+                        <label for="endereco">Endereço:</label>
+                    </td>
+                    <td>
+                        <input class="tamanho" type="text" name="endereco" id="" required>
+                    </td>        
+                </tr>
+
+                <tr><!--BAIRRO-->
+                    <td align="right">
+                        <label for="bairro">Bairro:</label>
+                    </td>
+                    <td>
+                        <input class="tamanho" type="text" name="bairro" id="" required>
+                    </td>        
+                </tr>
+
+                <tr><!--CIDADE-->
+                    <td align="right">
+                        <label for="cidade">Cidade:</label>
+                    </td>
+                    <td>
+                        <input class="tamanho" type="text" name="cidade" id="" required>
+                    </td>        
+                </tr>
+
+                <tr><!--CEP-->
+                    <td align="right">
+                        <label for="cep">CEP:</label>
+                    </td>
+                    <td>
+                        <input type="text" onkeypress="mascara(this,cep)" name="cep" maxlength="10">
+
+                    <td align="right">UF:
+                        <select id="estado" name="estado" class="estados">
+                            <option value="RS">RS</option>
+                            <option value="SC">SC</option>
+                            <option value="PR">PR</option>
+                            <option value="SP">SP</option>
+                        </select>
+                    </td>        
+                    </td>
+                </tr>
+                
+                <tr><!--PAÍS-->
+                    <td align="right">
+                        <label for="pais">País:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="pais" id="" value="Brasil" >
+                    </td>
+                </tr>
+                <br>
+                <br>
+                <tr>
+                    <tr><!--TELEFONE-->
+                        <td align="right">
+                            <label for="telefone">Telefone:</label>
+                        </td>
+                        <td>
+                            <input type="text" onkeypress="mascara(this,telefone)" name="telefone" maxlength="15">
+                        </td>        
+                    </tr>
+                    
+                    <td class="botao">
+                        
+                        <input class="btn1" type="submit" value="Enviar">
+                        <br>
+                        <br>
+                        <input calss="btn2" type="button" value="Cancelar">
+                    </td>
+                
+                </tr>
+            </table>
+        
+        </fieldset>
+    </center>
+        </form>
+</body>
+</html>

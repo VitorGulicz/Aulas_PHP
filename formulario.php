@@ -86,7 +86,7 @@
         <main>
             <section>
                 <h1>Cadastro de produtos</h1>
-<form action="formulario.php" method="post">
+<form action="formulario.php" method="GET">
     <fieldset>
         <legend>Dados do Produto</legend>
         <label>Nome do produto:<input type="text" name="nome"></label>
@@ -105,11 +105,11 @@
     <div class="cadastro">
     <?php
 // Verifica se o formulário foi enviado
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome  = $_POST['nome'];
-    $sku  = $_POST['sku'];
-    $qntd  = $_POST['qntd'];
-    $preco  = $_POST['preco'];
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    $nome  = $_GET['nome'];
+    $sku  = $_GET['sku'];
+    $qntd  = $_GET['qntd'];
+    $preco  = $_GET['preco'];
     
     echo "Nome : $nome<br/> <br/>";
     echo "SKU : $sku<br/> <br/>";
