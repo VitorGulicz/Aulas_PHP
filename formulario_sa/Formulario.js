@@ -39,4 +39,5 @@ function cep(variavel){
 
 function nome(variavel){
     variavel=variavel.replace(/\D/,"")
+    return variavel
 }

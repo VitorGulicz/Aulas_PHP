@@ -7,11 +7,12 @@
 </head>
 <body>
     <?php
-    if (isset($_GET['nome']) && isset($_GET['cnpj']) && isset($_GET['email']) && isset($_GET['endereco']) && isset($_GET['bairro']) && isset($_GET['cidade']) && isset($_GET['cep']) && isset($_GET['pais']) && isset($_GET['telefone']))
+    if (isset($_GET['nome1']) && isset($_GET['cnpj1']) && isset($_GET['email']) && isset($_GET['endereco']) && isset($_GET['bairro']) && isset($_GET['cidade']) && isset($_GET['cep1']) && isset($_GET['pais']) && isset($_GET['telefone1']))
     {
-        echo "Nome do fornecedor: ".$_GET['nome'];
+        echo "<h1>INFORMAÇÔES DO FORNECEDOR</h1>";
+        echo "Nome do fornecedor: ".$_GET['nome1'];
         echo "<br><br>";
-        echo "CNPJ do fornecedor: ".$_GET['cnpj'];
+        echo "CNPJ do fornecedor: ".$_GET['cnpj1'];
         echo "<br><br>";
         echo "Email do fornecedor: ".$_GET['email'];
         echo "<br><br>";
@@ -21,11 +22,11 @@
         echo "<br><br>";
         echo "Cidade do fornecedor: ".$_GET['cidade'];
         echo "<br><br>";
-        echo "CEP do fornecedor: ".$_GET['cep'];
+        echo "CEP do fornecedor: ".$_GET['cep1'];
         echo "<br><br>";
         echo "País do fornecedor: ".$_GET['pais'];
         echo "<br><br>";
-        echo "Telefone do fornecedor: ".$_GET['telefone'];
+        echo "Telefone do fornecedor: ".$_GET['telefone1'];
     }
     ?>
 </body>
