@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dados Fornecedor</title>
     <style>
-                table {
+        table {
             width: 80%;
             margin: 20px auto;
         }
@@ -31,7 +31,7 @@ if (
     isset($_GET['endereco']) && isset($_GET['bairro']) && isset($_GET['cidade']) &&
     isset($_GET['cep1']) && isset($_GET['pais']) && isset($_GET['telefone1'])
 ) {
-    // Cria um novo fornecedor
+
     $novoFornecedor = [
         'nome' => $_GET['nome1'],
         'cnpj' => $_GET['cnpj1'],
@@ -44,11 +44,11 @@ if (
         'telefone' => $_GET['telefone1']
     ];
 
-    // Adiciona ao array de sessão
+
     $_SESSION['fornecedores'][] = $novoFornecedor;
 }
 
-// Recupera os fornecedores armazenados
+
 $fornecedores = $_SESSION['fornecedores'] ?? [];
 ?>
 
