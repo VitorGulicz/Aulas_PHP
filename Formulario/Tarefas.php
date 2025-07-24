@@ -1,6 +1,15 @@
 <?php session_start(); ?>
 
 <?php
+if(isset($_get['nome']) && $_get['nome'] !=''){
+    $tarefa=array(
+
+    $tarefa['nome'] = $_get['nome']
+    )
+}
+if(isset($_get['descricao'])) {
+    $tare
+}
 $lista_tarefas = array();
     if (isset($_GET['nome'])){
         $_SESSION['lista_tarefas'][] = $_GET['nome'];
