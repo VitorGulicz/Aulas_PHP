@@ -1,40 +1,42 @@
-<?php session_start(); 
+<?php
+session_start();
 
-if(isset($_get['nome']) && $_get['nome'] !=''){
-    $tarefa=array();
-    $tarefa['nome'] = $_get['nome'];
+            if (isset($_GET['nome']) && $_GET['nome'] !='') {
+                $tarefa = array();
 
-if(isset($_get['descricao'])) {
-    $tarefa['descricao'] =$_get['descricao'];
+                $tarefa['nome'] = $_GET['nome'];
+            
+            $lista_tarefas = array();
 
-}else{
-    $tarefa['descricao']= '';
-}
+            if (isset($_GET['descricao'])) {
+                $tarefa['descricao'] = $_GET['descricao'];
+                }else{
+                    $tarefa['descricao'] = '';
+                }
 
-if(isset($_get['prazo'])) {
-    $tarefa['prazo'] =$_get['prazo'];
+            if (isset($_GET['prazo'])) {
+                $tarefa['prazo'] = $_GET['prazo'];
+                }else{
+                    $tarefa['prazo'] = '';
+                }
 
-}else{
-    $tarefa['prazo']= '';
-}
-$tarefa['prioridade'] = $_get['prioridade'];
+            $tarefa['prioridade'] = $_GET['prioridade'];
+            
+            if (isset($_GET['concluida'])) {
+                $tarefa['concluida'] = $_GET['concluida'];
+                }else{
+                    $tarefa['concluida'] = '';
+                }
+            $_SESSION['lista_tarefas'][] = $tarefa;
+            }
 
-if(isset($_get['concluida'])) {
-    $tarefa['concluida'] =$_get['concluida'];
-
-}else{
-    $tarefa['concluida']= '';
-}
-
-$_SESSION['lista_tarefas'][] =$tarefa;
-}
-
-    if (array_key_exists('lista_tarefas', $_SESSION)){
-        $lista_tarefas=$_SESSION['lista_tarefas'];
-    }else{
-        $lista_tarefas=[];
-    }
+            if (array_key_exists('lista_tarefas', $_SESSION)) {
+                $lista_tarefas = $_SESSION['lista_tarefas'];
+            }else{
+                $lista_tarefas = [];
+            
+            }
+            
         include "template.php"
-        //include "template1.php";
-        //session_destroy()
-?>
+        //session_destroy();
+    ?>

@@ -5,7 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciador de tarefas</title>
-
+<style>
+    td,tr {
+            border: 1px solid ;
+            padding: 8px;
+            text-align: center;
+    }
+    </style>
 </head>
 <body>
     <h1>Gerenciador de Tarefas</h1>
@@ -23,7 +29,7 @@
 </label>
         <label>        
             Prazo(Opcional):
-                <input type="text" name="opcional" />
+                <input type="text" name="prazo" />
         </label>
         <fieldset>
             <legend>Prioridade:</legend>
@@ -46,7 +52,6 @@
 <table>
     <tr>
         <th>Tarefas</th>
-        
         <th>Descrição</th>
         <th>Prazo</th>
         <th>Prioridade</th>
