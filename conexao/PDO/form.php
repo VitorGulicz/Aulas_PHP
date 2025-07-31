@@ -12,3 +12,5 @@
     <input type="text" name="nome" placeholder="Digite seu nome">
     <button type="submit">Entrar</button>
 </form>
+
+<footer>Vitor Gulicz</footer>
