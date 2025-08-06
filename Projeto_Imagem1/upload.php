@@ -1,6 +1,8 @@
 <?php
 require_once ('conecta.php');
-//OBTEM OS DADOS ENVIADOS PELO FORMULARIO
+
+// OBTEM OS DADOS ENVIADOS PELO FORMULARIO
+
 $evento = $_POST['evento'];
 $descricao = $_POST['descricao'];
 $imagem = $_FILES['imagem']['tmp_name'];
@@ -8,30 +10,34 @@ $tamanho = $_FILES['imagem']['size'];
 $tipo = $_FILES['imagem']['type'];
 $nome = $_FILES['imagem']['name'];
 
-//VERIFICA SE O ARQUIVO FOR ENVIADO CORRETAMENTE
+// VERIFICA SE O ARQUIVO FOI ENVIADO CORRETAMENTE
+
 if(!empty($imagem) && $tamanho >0){
     //LÊ O CONTEUDO DO ARQUIVO
     $fp = fopen($imagem,"rb");
-    $conteudo = fread($fp, filesize($imagem));
+    $conteudo = fread($fp,filesize($imagem));
     fclose($fp);
 
-    //PROTEGE CONTRA PROBLEMAS DE CARACTERES NO SQL
+    //PROTEGE CONTRA PROBLEMAS DE CARACTERES NO sql
+
     $conteudo = mysqli_real_escape_string($conexao,$conteudo);
 
-    //INSERE OS DADOS NO BANCO DE DADOS
+    //insere os dados no banco de dados
+
     $queryInsercao = "INSERT INTO tabela_imagens(evento,descricao,nome_imagem,tamanho_imagem,tipo_imagem,imagem)
-    VALUES ('$evento,'$descricao','$nome','$tamanho,'$tipo')";
+    VALUES ('$evento','$descricao','$nome','$tamanho','$tipo','$conteudo')";
+
     $resultado = mysqli_query($conexao,$queryInsercao);
 
-    //VERIFICA SE A INSERCAO FOI BEM SUCEDIDA
+    //VERIFICA SE A INSERÇÃO FOI BEM SUCEDIDA
     if($resultado){
-        echo 'Registro inserido com sucess!';
+        echo 'Registro inserido com sucesso!';
         header('Location:index.php');
         exit();
-    }else{
-        die("Erro ao inserir no banco: ".mysqli_error($conexao));
+    } else {
+        die("Erro ao inserir no banco: ".mysql_error($conexao));
     }
-
-}else{
-    echo "Erro : Nenhuma imagem foi enviada";
+}else {
+    echo "Erro: Nenhuma imagem foi enviada";
 }
+?>
