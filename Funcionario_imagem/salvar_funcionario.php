@@ -15,12 +15,12 @@ function redimensionarImagem($imagem,$largura,$altura){
 
     //Copia e redimensiona a imagem original para a nova
     //imagecopyresampled() -- Copia e redimensionamento e suavização
-    imagecopyresampled($nova_imagem,$imagem_original,0,0,0,0,$largura,$altura,$larguraOriginal,$alturaOriginal);
+    imagecopyresampled($novaImagem,$imagemOriginal,0,0,0,0,$largura,$altura,$larguraOriginal,$alturaOriginal);
     //Inicia um buffer para guardar a imagem como texto binario
     //ob_start() -- Inicia o "output buffering" Guardando a saida
     ob_start();
     //imagejpeg() Envia a imagem para o output (que vai pro buffer)
-    imagejpeg($nova_imagem);
+    imagejpeg($novaImagem);
 
     //OB_GET_CLEAN() -- Pegar o conteudo do buffer e limpa
     $dadosImagem = ob_get_clean();
@@ -28,7 +28,7 @@ function redimensionarImagem($imagem,$largura,$altura){
     //libera a memoria usada pelas imagens
     //imagedestroy() -- limpa a memoria da imagem criada
     imagedestroy($novaImagem);
-    imagedestoy($imagemOriginal);
+    imagedestroy($imagemOriginal);
 
     //retorna a imagem redimensionanda em formato binario
     return $dadosImagem;
@@ -41,7 +41,7 @@ function redimensionarImagem($imagem,$largura,$altura){
 
     try{
         //conexao do banco usando pdo
-        $pdo = new PDO("mysql:host=$host;dbname:$dbname",$username,$password);
+        $pdo = new PDO("mysql:host=$host;dbname=$dbname",$username,$password);
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
         if($_SERVER['REQUEST_METHOD']=='POST' && isset($_FILES['foto'])){
