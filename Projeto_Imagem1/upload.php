@@ -40,4 +40,5 @@ if(!empty($imagem) && $tamanho >0){
 }else {
     echo "Erro: Nenhuma imagem foi enviada";
 }
+
 ?>

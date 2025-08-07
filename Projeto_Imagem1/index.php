@@ -49,7 +49,7 @@ if (!$resultado){
         <td aling="center"><?php echo $arquivos['nome_imagem'];?></td>
         <td aling="center"><?php echo $arquivos['tamanho_imagem'];?></td>
         <td aling="center"><a href="ver_imagens.php?id=<?php echo $arquivos['codigo'];?>">Ver imagens</a></td>
-        <td aling="center"><a href="excluir_imagens.php?id=<?php echo $arquivos['codigo'];?>">Excluir imagens</a></td>
+        <td aling="center"><a href="excluir_imagem.php?id=<?php echo $arquivos['codigo'];?>">Excluir imagens</a></td>
     </tr>
     <?php } ?>
     </table>
