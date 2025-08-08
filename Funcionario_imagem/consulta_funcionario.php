@@ -11,15 +11,15 @@ try{
     $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
     //Recupera todos os funcionarios do banco de dados
-    $sql= "SELECT id,nome FROM funcionario";
-    $stmt = pdo->prepare($sql);
+    $sql= "SELECT id,nome FROM funcionarios";
+    $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $funcionarios = $stmt->fetchAll(PDO::FETCH_ASSOC); //Busca todos os resultados como uma matriz associativa
 
     //Verifica se foi solicitado a exclusão de um funcionario
     if($_SERVER['REQUEST_METHOD']== 'POST' && isset ($_POST['excluir_id'])){
         $excluir_id = $_POST['excluir_id'];
-        $sql_excluir = "DELETE FROM funcionarios WHERE id=:id";
+        $sql_excluir = "DELETE FROM funcionarios WHERE id=:id"; 
         $stmt_excluir = $pdo->prepare($sql_excluir);
         $stmt_excluir->bindparam('id',$excluir_id,PDO::PARAM_INT);
         $stmt_excluir->execute();
@@ -37,9 +37,24 @@ try{
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> Consulta de Funcionarios</title>
 </head>
 <body>
-    
+    <h1> Consulta de Funcionarios</h1>
+    <ul>
+    <?php foreach($funcionarios as $funcionario):?>
+        <li>
+            <!--Codigo abaixo cria link para vizualizar o funcionario-->     
+            <a href="visualizar_funcionario.php?id=<?= $funcionario['id']?>">
+                <?= htmlspecialchars($funcionario['nome'])?>
+            </a>
+            <!-- Formulario para excluir funcionario-->
+             <form method="POST" style="display:inline;">
+                <input type="hidden" name="excluir_id" value="<?=$funcionario['id']?>">
+                <button type="submit">Excluir</button>
+    </form>
+    </li>
+    <?php endforeach; ?>
+</ul>
 </body>
 </html>
