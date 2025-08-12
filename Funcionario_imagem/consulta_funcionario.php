@@ -45,7 +45,7 @@ try{
     <?php foreach($funcionarios as $funcionario):?>
         <li>
             <!--Codigo abaixo cria link para vizualizar o funcionario-->     
-            <a href="visualizar_funcionario.php?id=<?= $funcionario['id']?>">
+            <a href="visualizar.php?id=<?= $funcionario['id']?>">
                 <?= htmlspecialchars($funcionario['nome'])?>
             </a>
             <!-- Formulario para excluir funcionario-->
