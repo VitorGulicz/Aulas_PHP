@@ -5,7 +5,7 @@ require_once 'conexao.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
 
-    $sql = "SELECT * FROM usuarios WHERE email = :email";
+    $sql = "DELETE FROM usuarios WHERE email = :email";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':email', $email);
 
@@ -13,9 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($usuario) {
-            $nome = htmlspecialchars($usuario['nome']); // Exemplo: supondo que existe campo 'nome'
-            $email = htmlspecialchars($usuario['email']);
-            echo "<script>alert('Usuário encontrado:\\nNome: $nome\\nEmail: $email'); window.location.href='index.php';</script>";
+            echo "<script>alert('Usuário deletado'); window.location.href='index.php';</script>";
         } else {
             echo "<script>alert('Usuário não encontrado.'); window.location.href='index.php';</script>";
         }
