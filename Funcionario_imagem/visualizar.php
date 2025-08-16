@@ -15,7 +15,7 @@ try{
 
         $sql= "SELECT nome,telefone,tipo_foto,foto FROM funcionarios WHERE id= :id";
         $stmt = $pdo->prepare($sql);
-        $stmt = bindparam(':id',$id,PDO::PARAM_INT)
+        $stmt-> bindparam(':id',$id,PDO::PARAM_INT);
         $stmt->execute();
         
         if($stmt->rowCount()>0){
@@ -47,10 +47,24 @@ try{
 </head>
 <body>
     <h1>Dados dos Funcinarios</h1>
-    <p>Nome:<?=htmlspecialchars($funcionario['nome']?></p>)
+    <p>Nome:<?=htmlspecialchars($funcionario['nome'])?></p>
+    <p>Telefone:<?=htmlspecialchars($funcionario['telefone'])?></p>
+    <p>Foto:</p>
+    <img src="data:<?=$funcionario['tipo_foto']?>;base64,<?=base64_encode($funcionario['foto'])?>" alt="Foto do Funcionario">
+    <form method="POST">
+        <input type="hidden" name="excluir_id" value="<?=$id?>">
+        <button type="submit">Excluir Funcionario</button>
+    </form>
 </body>
 </html>
+<?php
+        }else{
+            echo"Funcionario não encontrado";
         }
-    }
+    }else{echo "Id do funcionario não fornecido";
+        }
+    
+}catch(PDOException $e){
+    echo "Erro: ".$e-> getMessage();
 }
 ?>
